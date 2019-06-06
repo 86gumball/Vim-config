@@ -5,6 +5,7 @@ Plug 'marcweber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
+Plug 'christophermca/meta5'
 
 call plug#end()
 
@@ -14,6 +15,7 @@ call plug#end()
     set ruler                   " display cursor position
     set number relativenumber   " side bar with relative numbers
     let g:loaded_matchparen = 1 " disable matching parentheses
+    colorscheme meta5           " christophermca/meta5's color scheme
     
 " Identation
     set autoindent              " use identation of previous line
@@ -24,6 +26,7 @@ call plug#end()
     set shiftwidth=4            " indent also with 4 spaces
     set expandtab               " expand tabs to spaces
     set textwidth=120
+
  
 """""""""""""""""""Mappings"""""""""""""""""""
 
