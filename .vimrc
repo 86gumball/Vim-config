@@ -51,6 +51,19 @@ inoremap <C-u> <Esc>WBvEUEa
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
+" Quote a word
+nnoremap <leader>" viw<Esc>li"<Esc>bi"<Esc>
+nnoremap <leader>' viw<Esc>li'<Esc>bi'<Esc>
+
+" Quote a visual selection
+vnoremap <leader>" di"<Esc>pa"<Esc>
+vnoremap <leader>' di'<Esc>pa'<Esc>
+vnoremap <leader>( di(<Esc>pa)<Esc>
+
+" Stronger h and l motions 
+nnoremap H 0
+nnoremap L $
+
 """""""""""""""""""Abbreviations"""""""""""""""""""
 iabbrev iab iabbrev
 iabbrev ii0 int i = 0
