@@ -9,12 +9,18 @@ Plug 'christophermca/meta5'
 
 call plug#end()
 
+" Leader key
+    let mapleader = ","
+    let maplocalleader = ";"
+
 " Basics
     set nocompatible
     syntax on
     set ruler                   " display cursor position
     set number relativenumber   " side bar with relative numbers
     let g:loaded_matchparen = 1 " disable matching parentheses
+
+" Color Scheme
     colorscheme meta5           " christophermca/meta5's color scheme
     
 " Identation
@@ -31,9 +37,21 @@ call plug#end()
 """""""""""""""""""Mappings"""""""""""""""""""
 
 " Swap a line with the line above
-nnoremap <leader>k :m-2<cr>==
-xnoremap <leader>k :m-2<cr>gv=gv
+nnoremap <leader>k :m-2<CR>==
+xnoremap <leader>k :m-2<CR>gv=gv
 
 " Swap a line with the line bellow
 nnoremap <leader>j :m+<cr>==
 xnoremap <leader>j :m'>+<cr>gv=gv
+
+" Upper case a word in insert mode
+inoremap <C-u> <Esc>WBvEUEa
+
+" Open .vimrc in a split window / Sourcing the content of .vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
+"""""""""""""""""""Abbreviations"""""""""""""""""""
+iabbrev iab iabbrev
+iabbrev ii0 int i = 0
+iabbrev esq <Esq>
