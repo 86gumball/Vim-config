@@ -33,6 +33,9 @@ call plug#end()
     set expandtab               " expand tabs to spaces
     set textwidth=120
 
+" Opening splits in different order
+    set splitbelow
+    set splitright
  
 """""""""""""""""""Mappings"""""""""""""""""""
 
@@ -63,6 +66,27 @@ vnoremap <leader>( di(<Esc>pa)<Esc>
 " Stronger h and l motions 
 nnoremap H 0
 nnoremap L $
+
+" Unmapping Arrow keys
+nnoremap <Left>  <nop>
+inoremap <Left>  <nop>
+nnoremap <Right> <nop>
+inoremap <Right> <nop>
+nnoremap <Up>    <nop>
+inoremap <Up>    <nop>
+nnoremap <Down>  <nop>
+inoremap <Down>  <nop>
+
+" Exiting insert mode with jk
+inoremap <Esc> <nop>
+inoremap jk    <Esc>
+inoremap kj    <Esc>
+
+" Window resizing made easier
+nnoremap <silent> <leader>++ :res +7<CR>
+nnoremap <silent> <leader>-- :res -7<CR>
+nnoremap <silent> <leader>+ :res +2<CR>
+nnoremap <silent> <leader>- :res -2<CR>
 
 """""""""""""""""""Abbreviations"""""""""""""""""""
 iabbrev iab iabbrev
