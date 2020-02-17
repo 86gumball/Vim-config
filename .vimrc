@@ -88,7 +88,32 @@ nnoremap <silent> <leader>-- :res -7<CR>
 nnoremap <silent> <leader>+ :res +2<CR>
 nnoremap <silent> <leader>- :res -2<CR>
 
+" Comment out a line
+nnoremap <leader>cc 0i// <Esc>
+nnoremap <leader>co 0dw
+
+" Copy first word in line above (useful for haskell)
+inoremap <leader>hc <Esc>k0ywj0Pi<space>
+
+inoremap \t \text{}\\<Esc>2hi
+inoremap \. \cdot
+inoremap \ba \begin{align*}<CR>\end{align*}<Esc>O
+inoremap \x \times
+inoremap \la \langle
+inoremap \ra \rangle
+inoremap pi1 \pi _1
+inoremap pi2 \pi _2
+inoremap \b \big(\big)<Esc>4hi
+inoremap dcomp def. comp. (70)
+inoremap dproj def. proj. (77)
+inoremap dtimes def. X (75)
+inoremap did def. id (71)
+
+inoremap \fr int frances[];<Esc>hi
+
 """""""""""""""""""Abbreviations"""""""""""""""""""
 iabbrev iab iabbrev
-iabbrev ii0 int i = 0
-iabbrev esq <Esq>
+iabbrev ii0 int i = 0;
+iabbrev fisprime int isPrime(int number){ <CR>if (number <= 1) return 0; <CR>if (number == 2) return 1; <CR>if (number % 2 == 0) return 0; <CR>int i; <CR>for (i = 3; i < sqrt(number) + 1; i += 2) { <CR>if (number % i == 0) return 0; <CR>} <CR>return 1; <CR>} 
+iabbrev clockstart clock_t start, end; <CR>double cpu_time_used; <CR>start = clock();
+iabbrev clockend end = clock(); <CR>cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
