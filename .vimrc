@@ -104,7 +104,6 @@ inoremap <leader>hc <Esc>k0ywj0Pi<space>
 " Save a file and compile it to pdf with pdflatex
 nnoremap <leader><CR> :w<CR>:!pdflatex %:t<CR>
 
-inoremap \t \text{}\\<Esc>2hi
 inoremap \. \cdot
 inoremap \ba \begin{align*}<CR>\end{align*}<Esc>O
 inoremap \x \times
