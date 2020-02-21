@@ -1,5 +1,14 @@
-/*
-/*/
+*
 !.vimrc
 !.gitignore
-!.vim/plugged/vim-snippets/snippets
+!.vim
+.vim/*
+!.vim/plugged/
+.vim/plugged/*
+!.vim/plugged/vim-snippets/
+.vim/pluuged/vim-snippets/*
+!.vim/plugged/vim-snippets/snippets/
+.vim/plugged/vim-snippets/snippets/*
+!.vim/plugged/vim-snippets/snippets/tex.snippets
+!.vim/plugged/vim-snippets/snippets/c.snippets
+!.vim/plugged/vim-snippets/snippets/java.snippets
