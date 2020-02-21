@@ -117,8 +117,6 @@ inoremap dproj def. proj. (77)
 inoremap dtimes def. X (75)
 inoremap did def. id (71)
 
-inoremap \fr int frances[];<Esc>hi
-
 """""""""""""""""""Abbreviations"""""""""""""""""""
 iabbrev iab iabbrev
 iabbrev ii0 int i = 0;
