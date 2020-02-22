@@ -28,19 +28,27 @@ snippet /*
 ##
 ## Control Statements
 snippet el
-	else
+	else {
+		${0}
+	}
 snippet eif
-	else if (${1}) ${0}
+	else if (${1}) {
+		${0}
+	}
 snippet if
-	if (${1}) ${0}
+	if (${1}) {
+		${0}
+	}
 ##
 ## Create a Method
 snippet m
-	${1:void} ${2:method}(${3}) ${4:throws }
+	${1:void} ${2:method}(${3}) {
+		${0}
+	}
 ##
 ## Create a Variable
 snippet v
-	${1:String} ${2:var}${3: = null}${4};
+	${1:Type} ${2:var};
 ##
 ## Javadocs
 snippet /**
@@ -50,11 +58,17 @@ snippet /**
 ##
 ## Loops
 snippet enfor
-	for (${1} : ${2}) ${0}
+	for (${1} : ${2}) {
+		${0}
+		}
 snippet for
-	for (${1}; ${2}; ${3}) ${0}
+	for (${1}; ${2}; ${3}) {
+		${0}
+		}
 snippet wh
-	while (${1}) ${0}
+	while (${1}) {
+		${0}
+	}
 ##
 ## Main method
 snippet main
@@ -74,4 +88,30 @@ snippet println
 ##
 ## Terminate Methods or Loops
 snippet re
-	return ${0}
+	return ${1:value};
+##
+## Switch case
+snippet sw
+	switch (${1}) {
+		${0}
+	}
+snippet case
+	case ${1}:
+		${0}
+snippet def
+	default:
+		${0}
+snippet br
+	break;
+##
+## Scanner from System.In
+snippet Sc
+	Scanner ${1:name} = new Scanner(System.in);
+snippet sgetchar
+	${1:scanner}.next().charAt(0);
+snippet sgetstr
+	${1:scanner}.next();
+snippet sgetint
+	${1:scanner}.nextInt();
+snippet sgetdou
+	${1:scanner}.nextDouble();
