@@ -111,7 +111,6 @@ inoremap \la \langle
 inoremap \ra \rangle
 inoremap pi1 \pi _1
 inoremap pi2 \pi _2
-inoremap \b \big(\big)<Esc>4hi
 inoremap dcomp def. comp. (70)
 inoremap dproj def. proj. (77)
 inoremap dtimes def. X (75)

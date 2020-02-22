@@ -3,9 +3,51 @@
 snippet up \usepackage
 	\\usepackage{${1:package}}${0}
 
+snippet docclass
+	\\documentclass{${1:article}}${0}
+
 #DOCUMENT
 # \begin{}...\end{}
+
+snippet title
+	\\title{${1:title}}
+	\\author{Rúben Lucas}
+	\\maketitle
+
 snippet beg \begin{} ... \end{} block
 	\\begin{${1:env}}
 		${0:${VISUAL}}
 	\\end{$1}
+
+snippet doc
+	\\begin{document}
+	    ${0:${VISUAL}}
+	\\end{document}
+
+snippet enum
+	\\begin{enumerate}
+	    ${0:${VISUAL}}
+	\\end{enumerate}
+
+snippet ali
+	\\begin{align}
+	    ${0:${VISUAL}}
+	\\end{align}
+
+snippet ali*
+	\\begin{align*}
+	    ${0:${VISUAL}}
+	\\end{align*}
+
+snippet frac
+	\\frac{${1:num}}{${2:denom}} ${0}
+
+snippet eq numbered equation environment
+	\\begin{equation}
+			${0:${VISUAL}}
+	\\end{equation}
+
+snippet eq* unnumbered equation environment
+	\\begin{equation*}
+			${0:${VISUAL}}
+	\\end{equation*}
