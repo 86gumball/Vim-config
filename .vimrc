@@ -104,6 +104,11 @@ inoremap <leader>hc <Esc>k0ywj0Pi<space>
 " Save a file and compile it to pdf with pdflatex
 nnoremap <leader><CR> :w<CR>:!pdflatex %:t<CR>
 
+inoremap && <space>&&<space>
+inoremap = <space>=<space>
+inoremap != <space>!=<space>
+inoremap ( ()<Left>
+
 " LaTeX mappings, will be reworked into tex.snippets
 " inoremap \. \cdot
 " inoremap \ba \begin{align*}<CR>\end{align*}<Esc>O
