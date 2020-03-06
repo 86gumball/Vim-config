@@ -107,8 +107,8 @@ snippet case
 	case ${1:/* variable case */}:
 		${2}
 		${3:break;}
-snippet ret
-	return ${0};
+snippet re
+	return ${1};
 ##
 ## Loops
 # for
@@ -335,3 +335,30 @@ snippet todo
 # This is kind of convenient
 snippet .
 	[${1}]
+
+##
+# Syscalls
+snippet wr
+	write(${1:fd}, ${2:buffer}, ${3:bufferSize})
+
+snippet wr,
+	write(${1:fd}, ${2:buffer}, ${3:bufferSize});
+
+snippet rd
+	read(${1:fd}, ${2:buffer}, ${3:bufferSize})
+
+snippet rd,
+	read(${1:fd}, ${2:buffer}, ${3:bufferSize});
+
+snippet open
+	open(${1:path}, ${2:flags});
+
+snippet close
+	close(${1:fd});
+
+##
+#
+snippet v
+	${1:Type} ${2:var}
+snippet v,
+	${1:Type} ${2:var};
