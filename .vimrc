@@ -104,21 +104,15 @@ inoremap <leader>hc <Esc>k0ywj0Pi<space>
 " Save a file and compile it to pdf with pdflatex
 nnoremap <leader><CR> :w<CR>:!pdflatex %:t<CR>
 
-inoremap \. \cdot
-inoremap \ba \begin{align*}<CR>\end{align*}<Esc>O
-inoremap \x \times
-inoremap \la \langle
-inoremap \ra \rangle
-inoremap pi1 \pi _1
-inoremap pi2 \pi _2
-inoremap dcomp def. comp. (70)
-inoremap dproj def. proj. (77)
-inoremap dtimes def. X (75)
-inoremap did def. id (71)
-
-"""""""""""""""""""Abbreviations"""""""""""""""""""
-iabbrev iab iabbrev
-iabbrev ii0 int i = 0;
-iabbrev fisprime int isPrime(int number){ <CR>if (number <= 1) return 0; <CR>if (number == 2) return 1; <CR>if (number % 2 == 0) return 0; <CR>int i; <CR>for (i = 3; i < sqrt(number) + 1; i += 2) { <CR>if (number % i == 0) return 0; <CR>} <CR>return 1; <CR>} 
-iabbrev clockstart clock_t start, end; <CR>double cpu_time_used; <CR>start = clock();
-iabbrev clockend end = clock(); <CR>cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+" LaTeX mappings, will be reworked into tex.snippets
+" inoremap \. \cdot
+" inoremap \ba \begin{align*}<CR>\end{align*}<Esc>O
+" inoremap \x \times
+" inoremap \la \langle
+" inoremap \ra \rangle
+" inoremap pi1 \pi _1
+" inoremap pi2 \pi _2
+" inoremap dcomp def. comp. (70)
+" inoremap dproj def. proj. (77)
+" inoremap dtimes def. X (75)
+" inoremap did def. id (71)
