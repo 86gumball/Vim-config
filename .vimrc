@@ -37,12 +37,12 @@ call plug#end()
     set tabstop=4               " tab width is 4 spaces
     set shiftwidth=4            " indent also with 4 spaces
     set expandtab               " expand tabs to spaces
-    set textwidth=120
+    set textwidth=180
 
 " Opening splits in different order
     set splitbelow
     set splitright
- 
+
 """""""""""""""""""Mappings"""""""""""""""""""
 
 " Swap a line with the line above
@@ -68,6 +68,7 @@ nnoremap <leader>' viw<Esc>li'<Esc>bi'<Esc>
 vnoremap <leader>" di"<Esc>pa"<Esc>
 vnoremap <leader>' di'<Esc>pa'<Esc>
 vnoremap <leader>( di(<Esc>pa)<Esc>
+vnoremap <leader>$ di$ <Esc>pa $<Esc>
 
 " Stronger h and l motions 
 nnoremap H 0
@@ -108,6 +109,14 @@ inoremap && <space>&&<space>
 inoremap = <space>=<space>
 inoremap != <space>!=<space>
 inoremap ( ()<Left>
+inoremap { {}<Left>
+inoremap [ []<Left>
+
+nnoremap <leader>ft :%s/⊥/\\bot /ge<CR>:%s/¬/\\neg /ge<CR>:%s/→/\\to /ge<CR>:%s/∨/\\vee /ge<CR>:%s/∧/\\land /ge<CR>:%s/↔/\\Leftrightarrow /ge<CR>:%s/φ/\\varphi /ge<CR>:%s/∈/\\in /ge<CR>:%s/FCP/\\mathcal{F}^{CP} /ge<CR>
+
+nnoremap <leader>fl :s/p0/p_0/ge<CR>:s/p1/p_1/ge<CR>:s/p2/p_2/ge<CR>:s/p3/p_3/ge<CR>:s/p4/p_4/ge<CR>:s/p5/p_5/ge<CR>:s/p6/p_6/ge<CR>:s/p7/p_7/ge<CR>:s/p8/p_8/ge<CR>:s/p9/p_9/ge<CR>:s/ou/\\vee/ge<CR>:s/not/\\neg/ge<CR>:s/abs/\\bot/ge<CR>:s/not/\\neg/ge<CR>:s/and/\\land/ge<CR>:s/dimp/leftrightarrow/ge<CR>:s/imp/\\to/ge<CR>:s/npert/\\notin/ge<CR>:s/pert/\\in/ge<CR>:s/fcp/\\mathcal{F}^{CP}/ge<CR>:s/\\inence/pertence/ge<CR>
+
+nnoremap <leader>fp :s/p0/p_0/ge<CR>:s/p1/p_1/ge<CR>:s/p2/p_2/ge<CR>:s/p3/p_3/ge<CR>:s/p4/p_4/ge<CR>:s/p5/p_5/ge<CR>:s/p6/p_6/ge<CR>:s/p7/p_7/ge<CR>:s/p8/p_8/ge<CR>:s/p9/p_9/ge<CR>
 
 " LaTeX mappings, will be reworked into tex.snippets
 " inoremap \. \cdot

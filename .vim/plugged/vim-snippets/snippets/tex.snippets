@@ -1,17 +1,28 @@
 #PREAMBLE
 #usepackage
 snippet up \usepackage
-	\\usepackage{${1:package}}${0}
+	\\usepackage{${1:package}}
 
 snippet docclass
-	\\documentclass{${1:article}}${0}
+	\\documentclass{${1:article}}
 
 #DOCUMENT
 # \begin{}...\end{}
 
+snippet sec
+	\\section{${1:section}}
+
+snippet sub
+	\\subsection{${1:subsection}}
+
+snippet ssub
+	\\subsubsection{${1:subsubsection}}
+
 snippet title
 	\\title{${1:title}}
 	\\author{Rúben Lucas}
+
+snippet mktitle
 	\\maketitle
 
 snippet beg \begin{} ... \end{} block
@@ -51,3 +62,18 @@ snippet eq* unnumbered equation environment
 	\\begin{equation*}
 			${0:${VISUAL}}
 	\\end{equation*}
+
+snippet fcp
+	\\( \\mathcal{F}^{CP} \\)
+	
+snippet acp
+	\\( \\mathcal{A}^{CP} \\)
+	
+snippet vcp
+	\\( \\mathcal{V}^{CP} \\)
+
+snippet it
+	\\item
+
+snippet text
+	\\text{${1:text}}
