@@ -43,6 +43,9 @@ call plug#end()
     set splitbelow
     set splitright
 
+" Filetype detetion
+    filetype plugin indent on
+
 """""""""""""""""""Mappings"""""""""""""""""""
 
 " Swap a line with the line above
@@ -68,7 +71,8 @@ nnoremap <leader>' viw<Esc>li'<Esc>bi'<Esc>
 vnoremap <leader>" di"<Esc>pa"<Esc>
 vnoremap <leader>' di'<Esc>pa'<Esc>
 vnoremap <leader>( di(<Esc>pa)<Esc>
-vnoremap <leader>$ di$ <Esc>pa $<Esc>
+noremap <leader>$ di$ <Esc>pa $<Esc>
+noremap <leader>$ di{<Esc>pa}<Esc>
 
 " Stronger h and l motions 
 nnoremap H 0
@@ -105,18 +109,26 @@ inoremap <leader>hc <Esc>k0ywj0Pi<space>
 " Save a file and compile it to pdf with pdflatex
 nnoremap <leader><CR> :w<CR>:!pdflatex %:t<CR>
 
-inoremap && <space>&&<space>
-inoremap = <space>=<space>
-inoremap != <space>!=<space>
+" Pair completion
 inoremap ( ()<Left>
 inoremap { {}<Left>
 inoremap [ []<Left>
+inoremap " ""<Left>
 
+" Fixing a latex file with parts copied
 nnoremap <leader>ft :%s/⊥/\\bot /ge<CR>:%s/¬/\\neg /ge<CR>:%s/→/\\to /ge<CR>:%s/∨/\\vee /ge<CR>:%s/∧/\\land /ge<CR>:%s/↔/\\Leftrightarrow /ge<CR>:%s/φ/\\varphi /ge<CR>:%s/∈/\\in /ge<CR>:%s/FCP/\\mathcal{F}^{CP} /ge<CR>
 
-nnoremap <leader>fl :s/p0/p_0/ge<CR>:s/p1/p_1/ge<CR>:s/p2/p_2/ge<CR>:s/p3/p_3/ge<CR>:s/p4/p_4/ge<CR>:s/p5/p_5/ge<CR>:s/p6/p_6/ge<CR>:s/p7/p_7/ge<CR>:s/p8/p_8/ge<CR>:s/p9/p_9/ge<CR>:s/ou/\\vee/ge<CR>:s/not/\\neg/ge<CR>:s/abs/\\bot/ge<CR>:s/not/\\neg/ge<CR>:s/and/\\land/ge<CR>:s/dimp/leftrightarrow/ge<CR>:s/imp/\\to/ge<CR>:s/npert/\\notin/ge<CR>:s/pert/\\in/ge<CR>:s/fcp/\\mathcal{F}^{CP}/ge<CR>:s/\\inence/pertence/ge<CR>
+" Fixing a line in latex
+nnoremap <leader>fl :s/p0/p_0/ge<CR>:s/p1/p_1/ge<CR>:s/p2/p_2/ge<CR>:s/p3/p_3/ge<CR>:s/p4/p_4/ge<CR>:s/p5/p_5/ge<CR>:s/p6/p_6/ge<CR>:s/p7/p_7/ge<CR>:s/p8/p_8/ge<CR>:s/p9/p_9/ge<CR>:s/ou/\\vee/ge<CR>:s/not/\\neg/ge<CR>:s/abs/\\bot/ge<CR>:s/not/\\neg/ge<CR>:s/and/\\land/ge<CR>:s/dimp/leftrightarrow/ge<CR>:s/imp/\\to/ge<CR>:s/npert/\\notin/ge<CR>:s/pert/\\in/ge<CR>:s/fcp/\\mathcal{F}^{CP}/ge<CR>:s/\\inence/pertence/ge<CR>:s/phi/\\varphi/ge<CR>:s/uni/\\cup/ge<CR>:s/nn0/\\mathbb{N}_0/ge<CR>:s/nn/\\mathbb{N}/ge<CR>
 
+" Fixing p variables
 nnoremap <leader>fp :s/p0/p_0/ge<CR>:s/p1/p_1/ge<CR>:s/p2/p_2/ge<CR>:s/p3/p_3/ge<CR>:s/p4/p_4/ge<CR>:s/p5/p_5/ge<CR>:s/p6/p_6/ge<CR>:s/p7/p_7/ge<CR>:s/p8/p_8/ge<CR>:s/p9/p_9/ge<CR>
+
+" Fixing brackets in a line
+nnoremap <leader>fb :s/-/\\{/ge<CR>:s/+/\\}/ge<CR>
+
+" Fixing equalities
+nnoremap <leader>fe :s/<=/\\leq/ge<CR>:s/>=/\\geq/ge<CR>
 
 " LaTeX mappings, will be reworked into tex.snippets
 " inoremap \. \cdot
@@ -130,3 +142,22 @@ nnoremap <leader>fp :s/p0/p_0/ge<CR>:s/p1/p_1/ge<CR>:s/p2/p_2/ge<CR>:s/p3/p_3/ge
 " inoremap dproj def. proj. (77)
 " inoremap dtimes def. X (75)
 " inoremap did def. id (71)
+
+" javacomplete2 stuff
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
+" To enable smart (trying to guess import option) inserting class imports with F4, add:
+nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+
+"To enable usual (will ask for import option) inserting class imports with F5, add:
+nmap <F5> <Plug>(JavaComplete-Imports-Add)
+imap <F5> <Plug>(JavaComplete-Imports-Add)
+
+" To add all missing imports with F6:
+nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
+imap <F6> <Plug>(JavaComplete-Imports-AddMissing)
+
+" To remove all unused imports with F7:
+nmap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
+imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
