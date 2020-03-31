@@ -12,6 +12,8 @@ Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'christophermca/meta5'
+Plug 'Dinduks/vim-java-get-set'
+Plug 'vim-scripts/javacomplete'
 
 call plug#end()
 
@@ -45,6 +47,10 @@ call plug#end()
 
 " Filetype detetion
     filetype plugin indent on
+
+" Stuff for java omnicompletion
+    autocmd Filetype java setlocal omnifunc=javacomplete#CompleteParamsInfo
+
 
 """""""""""""""""""Mappings"""""""""""""""""""
 
@@ -94,10 +100,10 @@ inoremap jk    <Esc>
 inoremap kj    <Esc>
 
 " Window resizing made easier
-nnoremap <silent> <leader>++ :res +7<CR>
-nnoremap <silent> <leader>-- :res -7<CR>
-nnoremap <silent> <leader>+ :res +2<CR>
-nnoremap <silent> <leader>- :res -2<CR>
+nnoremap <silent> <leader>++ :vertical res +7<CR>
+nnoremap <silent> <leader>-- :vertical res -7<CR>
+nnoremap <silent> <leader>+ :vertical res +2<CR>
+nnoremap <silent> <leader>- :vertical res -2<CR>
 
 " Comment out a line
 nnoremap <leader>cc 0i// <Esc>
@@ -115,6 +121,19 @@ inoremap { {}<Left>
 inoremap [ []<Left>
 inoremap " ""<Left>
 
+" Usefull for leaving parenthesis
+inoremap <C-d> <Right>
+
+" Insert a placeholder
+inoremap <leader>++ <++>
+
+" Put cursor at <++> and delete it
+inoremap <leader><leader> <Esc>/<++><CR>"_c4l
+nnoremap <leader><leader> <Esc>/<++><CR>"_c4l
+
+" Append ';' to end of line and create a new line
+inoremap <leader>o <C-o>A;<Esc>o
+
 " Fixing a latex file with parts copied
 nnoremap <leader>ft :%s/⊥/\\bot /ge<CR>:%s/¬/\\neg /ge<CR>:%s/→/\\to /ge<CR>:%s/∨/\\vee /ge<CR>:%s/∧/\\land /ge<CR>:%s/↔/\\Leftrightarrow /ge<CR>:%s/φ/\\varphi /ge<CR>:%s/∈/\\in /ge<CR>:%s/FCP/\\mathcal{F}^{CP} /ge<CR>
 
@@ -129,35 +148,3 @@ nnoremap <leader>fb :s/-/\\{/ge<CR>:s/+/\\}/ge<CR>
 
 " Fixing equalities
 nnoremap <leader>fe :s/<=/\\leq/ge<CR>:s/>=/\\geq/ge<CR>
-
-" LaTeX mappings, will be reworked into tex.snippets
-" inoremap \. \cdot
-" inoremap \ba \begin{align*}<CR>\end{align*}<Esc>O
-" inoremap \x \times
-" inoremap \la \langle
-" inoremap \ra \rangle
-" inoremap pi1 \pi _1
-" inoremap pi2 \pi _2
-" inoremap dcomp def. comp. (70)
-" inoremap dproj def. proj. (77)
-" inoremap dtimes def. X (75)
-" inoremap did def. id (71)
-
-" javacomplete2 stuff
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-
-" To enable smart (trying to guess import option) inserting class imports with F4, add:
-nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
-imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
-
-"To enable usual (will ask for import option) inserting class imports with F5, add:
-nmap <F5> <Plug>(JavaComplete-Imports-Add)
-imap <F5> <Plug>(JavaComplete-Imports-Add)
-
-" To add all missing imports with F6:
-nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
-imap <F6> <Plug>(JavaComplete-Imports-AddMissing)
-
-" To remove all unused imports with F7:
-nmap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
-imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)

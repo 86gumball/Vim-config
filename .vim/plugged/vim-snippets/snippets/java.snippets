@@ -6,6 +6,14 @@ snippet pu
 snippet pr
 	private ${0}
 ##
+## static
+snippet st
+	static ${0}
+snippet stb
+	static {
+		${0}
+	}
+##
 ## Basic Java packages and import
 snippet im
 	import ${0}
@@ -19,12 +27,22 @@ snippet j.n
 	java.net.
 snippet j.u
 	java.util.
+
 ##
-## Comments
+## Javadocs
 snippet /*
-	/*
+	/**
 	 * ${0}
 	 */
+snippet @br
+	@brief ${0:Description}
+snippet @fi
+	@file ${0:`vim_snippets#Filename("$1")`}.java
+snippet @pa
+	@param ${0:param}
+snippet @re
+	@return ${0:param}
+
 ##
 ## Control Statements
 snippet el
@@ -37,6 +55,13 @@ snippet eif
 	}
 snippet if
 	if (${1}) {
+		${0}
+	}
+
+snippet ife
+	if (${1}) {
+		${2}
+	} else {
 		${0}
 	}
 ##
@@ -61,10 +86,25 @@ snippet enfor
 	for (${1} : ${2}) {
 		${0}
 		}
+
+# For (default)
 snippet for
+	for (int ${1:i} = 0; $1 < ${2:count}; $1${3:++}) {
+		${0}
+	}
+
+# For (empty)
+snippet fore
 	for (${1}; ${2}; ${3}) {
 		${0}
 		}
+
+# For (defined variable)
+snippet ford
+	for (${1:i} = ${2:0}; ${3:condition}; $1${4:++}) {
+		${0}
+	}
+
 snippet wh
 	while (${1}) {
 		${0}
@@ -103,6 +143,23 @@ snippet def
 		${0}
 snippet br
 	break;
+
+##
+## Try && catch
+snippet try
+	try {
+		${0}
+	}
+snippet cat
+	catch(${1:Exception e}) {
+		${0}
+	}
+snippet tryc
+	try {
+		${1}
+	} catch(${2:Exception e}) {
+		${0}
+	}
 ##
 ## Scanner from System.In
 snippet Sc
